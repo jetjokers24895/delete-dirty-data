@@ -1,0 +1,16 @@
+{
+  "name": "delete-dirty-file",
+  "version": "1.0.0",
+  "description": "delete file uploaded,but it is dirty data(no use)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "lodash": "^4.17.11",
+    "mongodb": "^3.1.6"
+  }
+}
