@@ -5,7 +5,7 @@
  * 
  */
 var env = {
-  debug: true,
+  debug: false,
   serverPath : '/home/jenkins/furnituremaker-backend/',
   devPath: '/home/jetjoker/JETDIRECTORY/myproject/furniture-maker/v2-furniture-maker',
   workSpace: () => {
@@ -13,11 +13,17 @@ var env = {
   },
   pathToPublic: () => `${env.workSpace()}/public/uploads`,
   pathToResize: () => `${env.pathToPublic()}/resize`,
+  devURI: 'mongodb://localhost:27017/strapi',
+  serverURI: 'mongodb://devTeam:1@localhost:27017/furniture-maker-db',
+  devDB: 'strapi',
+  serverDB: 'furniture-maker-db',
+  URI : () => env.debug ? env.devURI : env.serverURI,
+  dbName: ()=> env.debug ? env.devDB : env.serverDB
 }
 
 module.exports = {
-  URI : 'mongodb://localhost:27017/strapi',
-  dbName: 'strapi',
+  URI : env.URI(),
+  dbName: env.dbName(),
   pathToPublic : env.pathToPublic(),
   pathToResize : env.pathToResize(),
   uploadFileCollectionName: 'upload_file',
